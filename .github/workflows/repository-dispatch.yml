@@ -1,0 +1,27 @@
+name: Complex Manual Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      action_type:
+        description: 'Action type: build or test'
+        required: true
+
+jobs:
+  manual-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run build step
+        if: github.event.inputs.action_type == 'build'
+        run: |
+          echo "Running build step..."
+          # 在這裡添加您的構建步驟
+
+      - name: Run test step
+        if: github.event.inputs.action_type == 'test'
+        run: |
+          echo "Running test step..."
+          # 在這裡添加您的測試步驟
