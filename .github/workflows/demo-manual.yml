@@ -41,6 +41,6 @@ jobs:
           echo "Tags is not true (${{ inputs.tags }}), running operation B..."
         fi
     - name: Check tags equal TRUE
-      if: github.event.inputs.tags == 
+      if: github.event.inputs.tags == 'true'
       run: echo "Check tags equal TRUE called!"
       
