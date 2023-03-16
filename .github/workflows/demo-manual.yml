@@ -43,4 +43,10 @@ jobs:
     - name: Check tags equal TRUE
       if: github.event.inputs.tags == 'true'
       run: echo "Check tags equal TRUE called!"
+    - name: Check tags equal TRUE 2
+      if: github.event.inputs.tags
+      run: echo "Check tags equal TRUE 2 called!"
+    - name: Check tags equal TRUE 3
+      if: ${{github.event.inputs.tags}}
+      run: echo "Check tags equal TRUE 3 called!"
       
