@@ -5,6 +5,6 @@ on:
   
 jobs:
   invoke-called:
-    uses: ChiaYu-Cheng/intro-github/.github/workflows/called.yml@main
+    uses: ChiaYu-Cheng/intro-github/.github/workflows/reuse-called.yml@<ref>
     with:
       x: false
