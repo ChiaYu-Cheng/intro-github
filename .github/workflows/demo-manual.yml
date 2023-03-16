@@ -33,4 +33,11 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ inputs.name }}"
+    - name: Check tags
+      run: |
+        if ${{ inputs.tags }}; then
+          echo "Tags is true (${{ inputs.tags }}), running operation A..."
+        else
+          echo "Tags is not true (${{ inputs.tags }}), running operation B..."
+        fi
       
