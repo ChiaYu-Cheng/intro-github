@@ -1,0 +1,10 @@
+name: caller
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  invoke-called:
+    uses: ChiaYu-Cheng/intro-github/.github/workflows/called.yml@main
+    with:
+      x: false
