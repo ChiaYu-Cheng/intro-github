@@ -1,27 +1,23 @@
-name: Complex Manual Workflow
+name: Repository Dispatch Workflow
 
 on:
-  workflow_dispatch:
-    inputs:
-      action_type:
-        description: 'Action type: build or test'
-        required: true
+  repository_dispatch:
+    types: [build-event, test-event]
 
 jobs:
-  manual-job:
+  repository-dispatch-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
       - name: Run build step
-        if: github.event.inputs.action_type == 'build'
+        if: github.event.action == 'build-event'
         run: |
           echo "Running build step..."
+          echo "Payload: ${{ toJson(github.event.client_payload) }}"
           # 在這裡添加您的構建步驟
 
       - name: Run test step
-        if: github.event.inputs.action_type == 'test'
+        if: github.event.action == 'test-event'
         run: |
           echo "Running test step..."
+          echo "Payload: ${{ toJson(github.event.client_payload) }}"
           # 在這裡添加您的測試步驟
