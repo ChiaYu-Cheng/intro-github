@@ -8,6 +8,9 @@ jobs:
   repository-dispatch-job:
     runs-on: ubuntu-latest
     steps:
+      - name: Dump github.event
+        run: echo "Playload: ${{ toJson(github.event) }}"
+        
       - name: Run build step
         if: github.event.action == 'build-event'
         run: |
