@@ -35,7 +35,7 @@ jobs:
       run: echo "Hello ${{ inputs.name }}"
     - name: Check tags
       run: |
-        if github.event.inputs.tags; then
+        if ${{ github.event.inputs.tags }}; then
           echo "Tags is true (${{ inputs.tags }}), running operation A..."
         else
           echo "Tags is not true (${{ inputs.tags }}), running operation B..."
