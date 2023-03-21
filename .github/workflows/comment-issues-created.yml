@@ -13,6 +13,8 @@ jobs:
     steps:
       - uses: actions/github-script@v6
         with:
+          # 可以不設 github-token，會自動使用
+          # 除非使用外部的token或自訂的token
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             github.rest.issues.createComment({
