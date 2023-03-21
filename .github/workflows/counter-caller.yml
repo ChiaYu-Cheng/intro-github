@@ -1,0 +1,16 @@
+name: Conuter caller
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  invoke-counter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+        script: |
+          console.log('${{ github.workspace }}/counter.js');
+          const { counter } = require('${{ github.workspace }}/counter.js');
+          const countResult = counter();
+          console.log('Counter result:', countResult);
