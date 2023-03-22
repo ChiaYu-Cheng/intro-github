@@ -7,7 +7,11 @@ jobs:
   example-job:
     runs-on: ubuntu-latest
     steps:
+      - name: List dir
+        run: ls -al
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: List dir 2
+        run: ls -al
       - name: Run build script
         run: ./.github/scripts/hello-world.sh
