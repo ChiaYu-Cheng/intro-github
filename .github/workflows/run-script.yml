@@ -14,5 +14,5 @@ jobs:
       - name: List dir 2
         run: ls -al
       - name: Run build script
-        run: ./.github/scripts/hello-world.sh
+        run: ./.github/script/hello-world.sh
         shell: bash
