@@ -13,6 +13,7 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
+            console.log('Deploying to production server on branch $GITHUB_REF');
             console.log('${{ github.workspace }}/counter.js');
             const { counter } = require('${{ github.workspace }}/counter.js');
             const countResult = counter();
