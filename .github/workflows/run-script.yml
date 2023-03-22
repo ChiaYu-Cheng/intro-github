@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: List dir 2
-        run: ls -al
+        run: ls -al .github/script/
       - name: Run build script
         run: ./.github/script/hello-world.sh
         shell: bash
