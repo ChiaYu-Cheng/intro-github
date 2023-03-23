@@ -11,7 +11,8 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
+      - name: Comment on new issue
+        uses: actions/github-script@v6
         with:
           # 可以不設 github-token，會自動使用
           # 除非使用外部的token或自訂的token
@@ -28,8 +29,8 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-              github.projects.createCard({
-                column_id: {{columnID}},
-                content_id: context.payload.issue.id,
-                content_type: "Issue"
-              });
+            github.projects.createCard({
+              column_id: {{columnID}},
+              content_id: context.payload.issue.id,
+              content_type: "Issue"
+            });
